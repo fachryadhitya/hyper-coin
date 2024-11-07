@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+.hum_btn_wrapper {
+  @apply flex flex-col justify-center items-center md:hidden;
+}
+
+.hum_lines {
+  @apply bg-white block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm;
+}
+
+/* media max 768px */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply absolute duration-300 ease-in-out bg-primary_blue top-[60px] max-lg:h-[calc(100vh-60px)] w-full max-w-[70%] flex-col max-md:gap-4 max-md:px-4 py-4 z-[10];
+  }
+}
+
+/* three rows */
+
+.custom_border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 129px;
+  height: 2px;
+  background-color: white;
+}
+
+.slick-list {
+  padding: 0 50% 0 0 !important;
+}
+
+.slick-slide {
+  margin-right: 8px !important;
+}
+
+.main_jumbotron {
+  background: linear-gradient(90deg, rgba(38, 194, 185, 1) 0%, rgba(40, 139, 231, 1) 100%),
+    url('/jubmbotron_background.jpg');
+  background-blend-mode: normal;
+  background-size: cover;
+  background-position: center;
+}
