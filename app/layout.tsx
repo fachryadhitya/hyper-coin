@@ -12,7 +12,7 @@ import { locales } from '@/constants/locals';
 
 export const metadata: Metadata = {
   title: 'hyperhire - coin siren',
-  description: 'SIΞRRACOIN is a cryptocurrency that was designed to accelerate the use and creation of solar energy.',
+  description: 'Coin siren is a platform that helps you to find the best job for you.',
 };
 
 const poppins = Poppins({
