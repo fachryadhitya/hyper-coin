@@ -1,62 +1,73 @@
-# Coin Siren Project Documentation (Next.js)
+## Development Setup
 
-## Getting Started
+### Required Tools
 
-To set up and run the project locally, follow the steps below:
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [PNPM](https://pnpm.io/) for package management
 
-### Prerequisites
+### Local Development
 
-Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+1. Install project dependencies:
+```bash
+pnpm install
+```
 
-### Setting Up the Project
+2. Launch the development server:
+```bash
+pnpm dev
+```
 
-Clone the repository (if you haven't already) and install dependencies:
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-Start the development server:
+## Architecture
 
-## Project Overview
+Built on Next.js App Router architecture, delivering a modern web experience with:
 
-This Next.js project utilizes the App Router directory and includes the following features:
+### Language Support
 
-### Internationalization (i18n)
+Seamlessly switch between English and Korean through the header logo interface.
 
-The project supports multiple languages. You can toggle between English and Korean by clicking on the logo at the top of the page.
+### Core Dependencies
 
-### Libraries Used
+- **Styling**: Tailwind CSS for utility-first styling
+- **UI Components**: React Slick for smooth carousel experiences
 
-- Tailwind CSS: For styling the application.
-- React Slick: For implementing carousels and sliders.
+### API Structure
 
-### API Endpoints
+All endpoints reside in the `api` directory:
 
-The project serves files from the `api` folder, with the following routes available:
+#### Available Endpoints
 
-#### Content Data
+| Endpoint | Description |
+|----------|-------------|
+| `/api/content-data?locale=[lang]` | Main content localized by language |
+| `/api/footer-data?locale=[lang]` | Footer section content |
+| `/api/hero-data?locale=[lang]` | Hero section content |
+| `/api/nav-data?locale=[lang]` | Navigation menu structure |
 
-Endpoint: `/api/content-data?locale=<lang>`
-Returns content data based on the specified language.
+### Performance Optimization
 
-#### Footer Data
+Implements parallel data fetching for optimal loading times:
 
-Endpoint: `/api/footer-data?locale=<lang>`
-Returns data for the footer section.
+```typescript
+const [nav, hero] = await Promise.all([
+  fetch(navEndpoint),
+  fetch(heroEndpoint)
+]);
+```
 
-#### Hero Data
+## Scripts
 
-Endpoint: `/api/hero-data?locale=<lang>`
-Returns data for the hero section.
+```bash
+# Development
+pnpm dev
 
-#### Navigation Data
+# Production Build
+pnpm build
 
-Endpoint: `/api/nav-data?locale=<lang>`
-Returns data for the navigation menu.
+# Start Production Server
+pnpm start
 
-### parallel route calling is used when possible, like for the nav and hero content
-
-- #example:
-
-`const [navResponse, heroResponse] = await Promise.all([fetch(navUrl), fetch(heroUrl)]);`
-
-
-
----
+# Linting
+pnpm lint
+```
