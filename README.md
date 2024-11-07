@@ -8,11 +8,13 @@
 ### Local Development
 
 1. Install project dependencies:
+
 ```bash
 pnpm install
 ```
 
 2. Launch the development server:
+
 ```bash
 pnpm dev
 ```
@@ -38,22 +40,19 @@ All endpoints reside in the `api` directory:
 
 #### Available Endpoints
 
-| Endpoint | Description |
-|----------|-------------|
+| Endpoint                          | Description                        |
+| --------------------------------- | ---------------------------------- |
 | `/api/content-data?locale=[lang]` | Main content localized by language |
-| `/api/footer-data?locale=[lang]` | Footer section content |
-| `/api/hero-data?locale=[lang]` | Hero section content |
-| `/api/nav-data?locale=[lang]` | Navigation menu structure |
+| `/api/footer-data?locale=[lang]`  | Footer section content             |
+| `/api/hero-data?locale=[lang]`    | Hero section content               |
+| `/api/nav-data?locale=[lang]`     | Navigation menu structure          |
 
 ### Performance Optimization
 
 Implements parallel data fetching for optimal loading times:
 
 ```typescript
-const [nav, hero] = await Promise.all([
-  fetch(navEndpoint),
-  fetch(heroEndpoint)
-]);
+const [nav, hero] = await Promise.all([fetch(navEndpoint), fetch(heroEndpoint)]);
 ```
 
 ## Scripts

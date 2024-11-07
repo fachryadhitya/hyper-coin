@@ -1,6 +1,6 @@
-import { IFuncLangParams } from "./interface/interface";
-import CompanyServicesGrid from "./components/Molecules/CompanyServicesGrid";
-import CompanyInfoGrid from "./components/Molecules/CompanyInfoGrid";
+import { IFuncLangParams } from './interface/interface';
+import CompanyServicesGrid from './components/Molecules/CompanyServicesGrid';
+import CompanyInfoGrid from './components/Molecules/CompanyInfoGrid';
 
 export default async function Home({ params }: IFuncLangParams) {
   const locale = params.lang || 'en-US';
