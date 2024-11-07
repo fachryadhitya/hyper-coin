@@ -2,23 +2,17 @@
 import Image from 'next/image';
 import Text from '../Atoms/text';
 import Button from '../Atoms/button';
-import { useEffect, useState } from 'react';
 import NavDropdown from '../Molecules/navDropdown';
 import NavLink from '../Molecules/navLink';
 import AccordionContent from '../Molecules/accordionContent';
 import { INavbar } from '@/app/interface/interface';
 
 export default function Navbar({ navContent }: { navContent: INavbar }) {
-  const [toggled, setToggled] = useState(false);
   const { navbar } = navContent ?? {};
 
   const logoData = navbar?.[0];
   const logoSubLinkedData = navbar?.[1];
   const { title, subLinks } = logoSubLinkedData ?? {};
-
-  useEffect(() => {
-    document.body.style.overflow = toggled ? 'hidden' : 'auto';
-  }, [toggled]);
 
   return (
     <section>
@@ -28,8 +22,7 @@ export default function Navbar({ navContent }: { navContent: INavbar }) {
         </div>
         <ul
           className={`nav_links flex gap-[60px] 
-           sidebar transition-left
-            ${toggled ? ' left-0' : '-left-full'}
+           sidebar transition-left left-full
             `}>
           <NavLink className="max-md:hidden">
             <Text>{title}</Text>

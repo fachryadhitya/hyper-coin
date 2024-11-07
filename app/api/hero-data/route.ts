@@ -19,6 +19,7 @@ export async function GET(request: Request) {
       },
     });
   } catch (e) {
+    console.error(e);
     return new Response(JSON.stringify({ error: 'Locale not Supported!' }), {
       headers: {
         'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface IBaseProps<T> extends HTMLAttributes<T> {}
 
 export interface IButtonProps extends IBaseProps<HTMLButtonElement>, ButtonHTMLAttributes<HTMLButtonElement> {}
@@ -87,6 +88,7 @@ export interface IRightContent {
   detail_1: string;
   detail_2: string;
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 [];
 
 // bottom content section

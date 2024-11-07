@@ -5,9 +5,9 @@ import NavLink from './navLink';
 import Text from '../Atoms/text';
 
 export default function AccordionContent() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const toggleAccordion = (index: any) => {
+  const toggleAccordion = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
